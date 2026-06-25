@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Selection of Recreational Software Projects Since Leaving Google</title>
+  <meta name="description" content="Chengyu Search, 0x88, SweetSpot, and Centipawn.">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #fbfaf8;
+      --fg: #1f2328;
+      --muted: #667085;
+      --line: #e5e7eb;
+      --link: #0969da;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0d1117;
+        --fg: #e6edf3;
+        --muted: #8b949e;
+        --line: #21262d;
+        --link: #58a6ff;
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font: 16px/1.7 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 96px 24px 120px;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      margin: 0 0 0.5rem;
+    }
+
+    .intro-dek {
+      color: var(--muted);
+      margin: 0 0 0.75rem;
+    }
+
+    .contact {
+      margin: 0 0 3rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .contact a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
+    }
+
+    .contact a + a::before {
+      content: " · ";
+      color: var(--line);
+    }
+
+    .project {
+      margin: 0 0 3rem;
+    }
+
+    .project h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 0 0 4px;
+      letter-spacing: -0.01em;
+    }
+
+    .project h2 a {
+      color: var(--link);
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
+      text-decoration-color: var(--line);
+    }
+
+    .project h2 a:hover {
+      text-decoration-color: var(--link);
+    }
+
+    .project h2 .dash {
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .project > p {
+      margin: 0 0 1rem;
+    }
+
+    .why {
+      margin: 0 0 1rem;
+      padding: 0.75rem 1rem;
+      border-left: 3px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    a {
+      color: var(--link);
+      text-underline-offset: 0.15em;
+    }
+
+    .tech {
+      margin: 1.5rem 0 0;
+      padding-left: 1.25rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .tech-label {
+      display: block;
+      margin: 1.5rem 0 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+    }
+
+    .tech li + li {
+      margin-top: 0.25rem;
+    }
+
+    .transition {
+      margin: 0 0 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line);
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 64px 20px 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>A Selection of Recreational Software Projects Since Leaving Google</h1>
+      <p class="contact"><a href="https://github.com/manthedan">GitHub</a><a href="https://www.linkedin.com/in/daniel-dubats-49237a93/">LinkedIn</a></p>
+    </header>
+
+    <section class="project" id="chengyu-search">
+      <h2><a href="https://findchengyu.com/">Chengyu Search</a> <span class="dash">—</span> <a href="https://findchengyu.com/">https://findchengyu.com/</a> <span class="dash">·</span> <a href="https://github.com/manthedan/chengyu-search">GitHub</a></h2>
+      <p>A search engine for Chinese idioms.</p>
+      <p>Last year I spent a month in Hangzhou studying Chinese, and I realized a lot of students were missing out on the cultural lessons of the language that I had learned through Ricky. Dictionaries have the idioms, but you would only find them if you are directly looking for them.</p>
+      <p>I figured there should be a semantic ML approach, so I did a large amount of data processing on some open source Chinese dictionaries, and created an embedding search.</p>
+      <p>There's still much room for optimization if this ever needed to scale, but as a focused learning tool it runs impressively well with simple cosine similarity matching on a conventional CPU server.</p>
+      <p class="tech-label">Highlights</p>
+      <ul class="tech">
+        <li>Hybrid semantic + lexical search over 5,900+ CC-CEDICT-backed chengyu</li>
+        <li>Auto-routed English, Hanzi, and pinyin queries</li>
+        <li>Fuse.js lexical retrieval plus Transformers.js / MiniLM semantic ranking</li>
+        <li>Local embedding artifacts and cache-aware Express API</li>
+        <li>Learner UX: simplified/traditional toggle, saved idioms, Anki TSV export, and clickable example-word tooltips</li>
+      </ul>
+    </section>
+
+    <p class="transition">The next two projects turn my neural-chess research into reusable tools: a browser chess-engine platform and a small neural engine designed for that platform.</p>
+
+    <section class="project" id="0x88">
+      <h2><a href="https://0x88.app/">0x88</a> <span class="dash">—</span> <a href="https://0x88.app/">https://0x88.app/</a> <span class="dash">·</span> <a href="https://github.com/manthedan/0x88">GitHub</a></h2>
+      <p>A browser-native chess engine platform. It runs engines locally in the browser with WebAssembly and WebGPU experiments, with play, analysis, and engine-vs-engine arena modes. This project became a deep systems exercise in browser compute, engine packaging, model artifacts, and performance testing.</p>
+      <p>The most interesting neural chess engines require some technical background to use. My goal was to see if I could remove that completely by getting them to run in the browser, similarly to <a href="https://webllm.mlc.ai/">https://webllm.mlc.ai/</a> for LLMs.</p>
+      <p>To that degree I have been fairly successful. They are quite usable on an Apple Silicon Mac, and will become increasingly usable as more WebGPU/WebNN capabilities are promoted by the Chromium / browser vendor teams.</p>
+      <p>I experimented with several runtime approaches, including hand-rolling WGSL shaders. At present, the ONNX runtimes are generally the most stable and usable.</p>
+      <p>Most chess engines are still CPU optimized, so I have created standard procedures for porting them in browser using WASM and Relaxed SIMD targets to approximate as much of local hardware performance as browsers allow.</p>
+      <p class="tech-label">Highlights</p>
+      <ul class="tech">
+        <li>Browser-first chess platform with Play, multi-engine Analysis, and Arena modes</li>
+        <li>Local WebGPU/WASM execution with cached engine and model artifacts</li>
+        <li>LC0, Maia, Stockfish, Berserk, PlentyChess, Viridithas, and Reckless runtime work</li>
+        <li>ONNX Runtime WebGPU inference with QDQ, WGSL, TVMJS, and WebNN research lanes</li>
+        <li>Multi-engine analysis, PGN review, local IndexedDB game storage, and arena scheduling</li>
+        <li>Artifact provenance, parity testing, and GPL/AGPL corresponding-source packaging</li>
+      </ul>
+    </section>
+
+    <section class="project" id="sweetspot">
+      <h2><a href="https://github.com/manthedan/sweet-spot">SweetSpot</a> <span class="dash">—</span> <a href="https://github.com/manthedan/sweet-spot">https://github.com/manthedan/sweet-spot</a></h2>
+      <p>The idea here is quite simple: there are many times where one needs cheap distributed compute. AWS Spot Instances are cheap because they run on spare EC2 capacity, but they can be interrupted when AWS needs that capacity back.</p>
+      <p>SweetSpot treats workers as volatile and makes task completion explicit. A bounded-parallelism approach uses AWS Batch Spot instances as volatile workers, while SQS coordinates at-least-once task execution and S3 stores outputs with deterministic done markers.</p>
+      <p>The design goal is to augment the areas where agents struggle. In my experience, if you let Claude or GPT build out your ETL, they are too conservative where you want them to press (throughput) but have no sense of your own real-world sensitivities (cost, wall time, job batch size). So I've tried to design this in a way that is usable by agents, tries to leverage more cost-efficient ARM instances, and is extremely durable and empirical, placing testing and experimental verification ahead of agent instincts.</p>
+      <p class="tech-label">Highlights</p>
+      <ul class="tech">
+        <li>Python CLI/framework for idempotent AWS Batch Spot workloads</li>
+        <li>SQS task queue with S3 outputs, summaries, and deterministic done markers</li>
+        <li>At-least-once execution with Spot retry handling, DLQ redrive, and duplicate-attempt validation</li>
+        <li>Canary-first sizing and telemetry-driven x86 / ARM / Graviton cost modeling</li>
+        <li>OpenTofu infrastructure and dry-run-first operational commands</li>
+      </ul>
+    </section>
+
+    <section class="project" id="centipawn">
+      <h2>Centipawn <span class="dash">— open weights, playable on 0x88.app, not yet open source</span></h2>
+      <p>A browser-first neural chess engine exploring how compact Leela-style models trade off strength, size, latency, and search effectiveness. The work focuses on deployable neural chess models, ONNX/browser inference, and protocol-based evaluation rather than one universal Elo claim.</p>
+      <p class="tech-label">Highlights</p>
+      <ul class="tech">
+        <li>Browser-first Leela-style model/search stack</li>
+        <li>Compact CNN and Move / Board-Square token transformer architectures</li>
+        <li>Policy and WDL/value heads, with action-value and regret experiments</li>
+        <li>TypeScript/ONNX evaluator path integrated with PUCT search</li>
+        <li>Classic PUCT, AV-PUCT, and search-mode arena tooling</li>
+        <li>Frontier-card evaluation across strength, size, latency, blunders, and calibration</li>
+        <li>LC0 search-distillation and self-play infrastructure for stronger future checkpoints</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

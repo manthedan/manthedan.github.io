@@ -214,7 +214,7 @@
 
     <section class="project" id="centipawn">
       <h2>Centipawn <span class="dash">— open weights, playable on 0x88.app, not yet open source</span></h2>
-      <p>A browser-first neural chess engine exploring how compact Leela-style models trade off strength, size, latency, and search effectiveness. The work focuses on deployable neural chess models, ONNX/browser inference, and protocol-based evaluation rather than one universal Elo claim.</p>
+      <p>A browser-first neural chess engine in the spirit of Leela Chess Zero, but drastically compressed: where LC0's transformer models run 140M+ parameters, Centipawn operates at under 1M. Early results suggest grandmaster-level or stronger play, though I am evaluating strength through protocol-specific engine benchmarks rather than a single Elo claim. In the world of top chess engines this is still modest, but the goal is not to compete on raw strength -- it is to build a model small enough to inspect, deploy, and iterate on entirely in the browser. Architecture diagrams and evaluation write-ups are in progress on the <a href="https://0x88.app/docs/">0x88 docs page</a>.</p>
       <p class="tech-label">Highlights</p>
       <ul class="tech">
         <li>Browser-first Leela-style model/search stack</li>
